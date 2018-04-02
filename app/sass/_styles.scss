@@ -8,6 +8,10 @@ $rem: 16;
   @return (($px*1.5)/$rem)+rem
 }
 
+@function pix($pixel) {
+  @return ($pixel*1)+px
+}
+
 html {
   box-sizing: border-box;
 }
@@ -34,7 +38,7 @@ a {
 }
 
 .section__title {
-  margin-top: 56px;
+  margin-top: pix(112);
   padding-left: 10px;
   padding-right: 10px;
   text-align: center;
@@ -42,16 +46,16 @@ a {
   font-weight: bold;
   text-transform: uppercase;
   color: $main-font-color;
-  font-size: pxscale(11);
+  font-size: pix(22);
 }
 .section__text {
-  margin: 17px;
+  margin: pix(35);
   padding-left: 10px;
   padding-right: 10px;
   text-align: center;
   font-family: 'Lato';
   color: $secondary-font-color;
-  font-size: pxscale(8.5);
+  font-size: pix(17);
   position: relative;
 
   &::before {
@@ -74,11 +78,11 @@ a {
 }
 
 .btn {
-  padding: pxscale(10) pxscale(13.5);
+  padding: pix(20) pix(27);
   text-align: center;
   text-transform: capitalize;
   color: white;
-  font-size: pxscale(8);
+  font-size: pix(14);
   font-family: 'Lato';
   font-weight: bold;
   text-decoration: none;
@@ -95,7 +99,7 @@ a {
   font-weight: bold;
   text-transform: uppercase;
   color: $main-font-color;
-  font-size: pxscale(10);
+  font-size: pix(18);
 
   span {
     color: $yellow;
@@ -104,7 +108,7 @@ a {
 
 %secondary-text {
   font-family: "Lato";
-  font-size: pxscale(8);
+  font-size: pix(14);
   color: $secondary-font-color;
   font-weight: 300;
   line-height: 1.5;
@@ -113,7 +117,7 @@ a {
 
 ::placeholder {
   font-family: "Lato";
-  font-size: pxscale(9);
+  font-size: pix(14);
   font-style: italic;
   color: #747474;
 }
@@ -134,7 +138,7 @@ a {
     font-family: 'Montserrat';
     font-weight: bold;
     font-style: normal;
-    font-size: remy(24);
+    font-size: pix(48);
     text-transform: uppercase;
     color: white;
 
@@ -146,7 +150,7 @@ a {
 
   &__text {
     font-family: 'Lato';
-    font-size: remy(13);
+    font-size: pix(18);
     color: white;
 
     @media screen and (max-width: $break_sm) {
@@ -166,7 +170,7 @@ a {
       font-family: 'Montserrat';
       font-weight: bold;
       text-transform: uppercase;
-      font-size: pxscale(27);
+      font-size: pix(54);
       color: white;
 
       @media screen and (max-width: $break_sm){
@@ -264,7 +268,7 @@ a {
     padding: pxscale(7);
     background-color: rgba(51, 51, 51, .7);
     font-family: "Lato";
-    font-size: pxscale(7);
+    font-size: pix(14);
     text-transform: capitalize;
     text-align: center;
     color: white;
@@ -383,7 +387,7 @@ a {
     padding: pxscale(7);
     background-color: rgba(51, 51, 51, .7);
     font-family: "Lato";
-    font-size: pxscale(7);
+    font-size: pix(14);
     text-transform: capitalize;
     text-align: left;
     color: white;
@@ -454,7 +458,7 @@ a {
     margin-bottom: 8px;
     font-family: "Lato";
     color: #505050;
-    font-size: pxscale(9);
+    font-size: pix(18);
   }
 
   &__text-2 {
@@ -549,7 +553,7 @@ a {
     margin-left: 12px;
     border: 1px solid #111111;
     font-family: "lato";
-    font-size: pxscale(10);
+    font-size: pix(14);
     font-weight: 300;
     color: #111111;
     text-transform: capitalize;
@@ -632,7 +636,7 @@ a {
     margin-top: 20px;
     font-family: "Lato";
     color: #5b5b5b;
-    font-size: pxscale(9);
+    font-size: pix(18);
   }
 
   &__text {
@@ -721,7 +725,7 @@ a {
 
   &__name {
     font-family: "Lato";
-    font-size: pxscale(8);
+    font-size: pix(14);
     color: #313131;
   }
 
@@ -831,7 +835,7 @@ a {
     border: solid 1px #c7c7c7;
     border-right: none;
     font-family: "Lato";
-    font-size: pxscale(10);
+    font-size: pix(20);
     font-style: italic;
     color: black;
     transition: all .2s;
@@ -936,7 +940,7 @@ a {
     outline: none;
     border: solid 1px #c7c7c7;
     font-family: "Lato";
-    font-size: pxscale(10);
+    font-size: pix(16);
     font-style: italic;
     color: black;
     transition: all .2s;
@@ -966,7 +970,7 @@ a {
     outline: none;
     border: solid 1px #c7c7c7;
     font-family: "Lato";
-    font-size: pxscale(10);
+    font-size: pix(16);
     font-style: italic;
     color: black;
     transition: all .2s;
