@@ -1,0 +1,1144 @@
+////////////////////// global styles ////////////////////
+$rem: 16;
+@function remy($pxsize) {
+    @return ($pxsize/$rem)+rem;
+}
+
+@function pxscale($px) {
+  @return (($px*1.5)/$rem)+rem
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-image: url('../imgs/dot-bg.png');
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.container {
+  @include wrapper;
+}
+
+.section__title {
+  margin-top: 56px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $main-font-color;
+  font-size: pxscale(11);
+}
+.section__text {
+  margin: 17px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  font-family: 'Lato';
+  color: $secondary-font-color;
+  font-size: pxscale(8.5);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: pxscale(-26);
+    left: 50%;
+    transform: translateX(-50%);
+    width: pxscale(30);
+    border-top: 2px solid $yellow;
+
+    @include sm-block {
+      bottom: -10px;
+    }
+  }
+}
+
+.section__title_yellow {
+  color: $yellow;
+}
+
+.btn {
+  padding: pxscale(10) pxscale(13.5);
+  text-align: center;
+  text-transform: capitalize;
+  color: white;
+  font-size: pxscale(8);
+  font-family: 'Lato';
+  font-weight: bold;
+  text-decoration: none;
+  background-color: $yellow;
+  transition: all .2s;
+
+  &:hover {
+  background-color: #ef8a1c;
+  }
+}
+
+%secondary-title {
+  font-family: "Montserrat";
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $main-font-color;
+  font-size: pxscale(10);
+
+  span {
+    color: $yellow;
+  }
+}
+
+%secondary-text {
+  font-family: "Lato";
+  font-size: pxscale(8);
+  color: $secondary-font-color;
+  font-weight: 300;
+  line-height: 1.5;
+  word-spacing: 2px;
+}
+
+::placeholder {
+  font-family: "Lato";
+  font-size: pxscale(9);
+  font-style: italic;
+  color: #747474;
+}
+/////////////////////// header ////////////////////////
+
+.header {
+  padding: remy(265) 0 remy(70) remy(40);
+  background-image: url('../imgs/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  @media screen and (max-width: $break_sm){
+    padding-top: remy(20);
+  }
+
+  &__title {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-style: normal;
+    font-size: remy(24);
+    text-transform: uppercase;
+    color: white;
+
+    @media screen and (max-width: $break_sm) {
+      text-align: center;
+      margin-bottom: remy(5);
+    }
+  }
+
+  &__text {
+    font-family: 'Lato';
+    font-size: remy(13);
+    color: white;
+
+    @media screen and (max-width: $break_sm) {
+      text-align: center;
+      margin-bottom: remy(100);
+    }
+  }
+}
+
+.slogan {
+    margin-top: remy(14);
+    border: 1px solid white;
+    width: 630px;
+    max-width: 90%;
+
+    &__text {
+      font-family: 'Montserrat';
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: pxscale(27);
+      color: white;
+
+      @media screen and (max-width: $break_sm){
+          text-align: center;
+      }
+
+      &_we {
+        padding: 24.5px 14.5px;
+        display: inline-block;
+        color: $yellow;
+        background-color: white;
+
+        @media screen and (max-width: $break_sm){
+            width: 100%;
+            padding: 5px 5px;
+            text-align: center;
+        }
+      }
+    }
+}
+
+
+
+///////////////////////////// award ///////////////////////////
+.award {
+
+
+  &__img {
+  width: pxscale(133);
+  height: auto;
+  display: block;
+  margin: remy(65) auto remy(85) auto;
+  }
+}
+
+
+
+////////////////////////// consalting ///////////////////////
+
+.business {
+  @include row-flex;
+  margin-top: pxscale(56);
+  padding-bottom: 92px;
+
+  @media screen and (max-width: $break_md) {
+    flex-direction: column;
+
+    align-items: center;
+  }
+}
+
+.business-photo {
+  @include col;
+  @include size(6);
+  @include size-md(12);
+
+
+  @include row-flex;
+
+  @media screen and (max-width: $break_md) {
+    justify-content: center;
+  }
+
+  &__item {
+    @include col;
+    @include size(6);
+    @include size-md(5);
+    @include size-sm(6);
+    @include size-xs(10);
+    position: relative;
+    margin-bottom: 22px;
+
+    &:nth-of-type(3), &:nth-of-type(4) {
+      margin-bottom: 0;
+
+      @include xs-block {
+        margin-bottom: 22px;
+      };
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    height: pxscale(115);
+    object-fit: cover;
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    display: inline-block;
+    width: 50%;
+    padding: pxscale(7);
+    background-color: rgba(51, 51, 51, .7);
+    font-family: "Lato";
+    font-size: pxscale(7);
+    text-transform: capitalize;
+    text-align: center;
+    color: white;
+  }
+}
+
+.business-right {
+  @include col;
+  @include size(6);
+  @include size-md(12);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @include md-block {
+    align-items: center;
+  }
+
+  &__title {
+    @include col;
+    @extend %secondary-title;
+    margin-bottom: pxscale(8.5);
+
+    @include md-block {
+      margin-top: 20px;
+    }
+  }
+
+  &__text-1 {
+    @include col;
+    @extend %secondary-text;
+    margin-bottom: pxscale(18);
+
+    @include md-block {
+      width: 80%;
+      text-align: center;
+    }
+  }
+
+  &__text-2 {
+    @include col;
+    @extend %secondary-text;
+    margin-bottom: pxscale(22);
+
+    @include md-block {
+      width: 80%;
+      text-align: center;
+    }
+  }
+
+  &__btn {
+    @include col;
+  }
+}
+
+
+
+
+
+///////////////////////// ideas ////////////////////////
+
+.ideas {
+  padding: 56px 0 105px 0;
+  background-image: url('../imgs/bg18.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  .section__title {
+    color: white;
+  }
+}
+
+
+
+
+
+////////////////////////// team /////////////////////////////
+
+.team {}
+
+.team-photos {
+  @include row-flex;
+  justify-content: center;
+  margin-top: pxscale(53);
+}
+
+.team-item {
+  width: 16%;
+  margin-right: 3px;
+  position: relative;
+
+  @include md-block {
+    width: 22%;
+  };
+
+  @include sm-block {
+    width: 30%;
+  };
+
+  @include xs-block {
+    width: 45%;
+  };
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    display: inline-block;
+    width: 70%;
+    padding: pxscale(7);
+    background-color: rgba(51, 51, 51, .7);
+    font-family: "Lato";
+    font-size: pxscale(7);
+    text-transform: capitalize;
+    text-align: left;
+    color: white;
+
+    &_yellow {
+      color: $yellow;
+    }
+  }
+}
+
+
+
+///////////////////////// secret //////////////////////////
+
+.secret-items {
+  @include row-flex;
+  justify-content: center;
+  padding-top: pxscale(50);
+  padding-bottom: 97px;
+}
+
+.secret-item {
+  @include col;
+  @include size(3);
+  @include size-md(5);
+  @include size-xs(10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2px solid rgba(51, 51, 51, .8);
+
+  &__title {
+    width: 100%;
+    padding-top: pxscale(11);
+    padding-bottom: pxscale(8);
+    margin-bottom: 16px;
+    @extend %secondary-title;
+    text-transform: capitalize;
+    color: white;
+    background-color: rgba(51, 51, 51, .8);
+  }
+
+  &__img {
+    width: 15%;
+    height: auto;
+    margin-bottom: 18px;
+  }
+
+  &__text-main {
+    position: relative;
+    margin-bottom: 36px;
+    @extend %secondary-text;
+    line-height: 1.2;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: pxscale(-5);
+      left: 50%;
+      transform: translateX(-50%);
+      width: pxscale(30);
+      border-top: 2px solid $yellow;
+  }
+}
+
+  &__text-1 {
+    margin-bottom: 8px;
+    font-family: "Lato";
+    color: #505050;
+    font-size: pxscale(9);
+  }
+
+  &__text-2 {
+    @extend %secondary-text;
+
+    &:last-of-type {
+      margin-bottom: 17px;
+    }
+  }
+}
+
+
+
+///////////////////////// featured //////////////////////////
+
+.featured {
+  padding: remy(87) 0 remy(60) 0;
+  background-image: url('../imgs/bg2.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  .section__title {
+    position: relative;
+    margin-bottom: remy(60);
+    color: white;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: pxscale(-20);
+      left: 50%;
+      transform: translateX(-50%);
+      width: pxscale(30);
+      border-top: 2px solid $yellow;
+    }
+  }
+}
+
+.featured-companyes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+
+  &__img {
+    margin-left: pxscale(27);
+    width: 12%;
+    height: auto;
+
+    @include md-block {
+      width: 16%;
+      height: auto;
+    }
+    @include xs-block {
+      width: 50%;
+      height: auto;
+      margin-left: 0;
+      padding: 0px 30px 20px 30px;
+    }
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+}
+
+
+
+
+
+///////////////////////// trust //////////////////////////
+
+.radio {
+  margin-top: pxscale(58);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__button {
+    display: none;
+
+    &:checked + .radio__text {
+      color: $yellow;
+      background-color: #333333;
+    }
+  }
+
+
+  &__text {
+    padding: 7px 20px;
+    margin-left: 12px;
+    border: 1px solid #111111;
+    font-family: "lato";
+    font-size: pxscale(10);
+    font-weight: 300;
+    color: #111111;
+    text-transform: capitalize;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    @media screen and (max-width: 670px) {
+      width: 25%;
+      margin-top: 15px;
+      text-align: center;
+
+      &:nth-of-type(4) {
+        margin-left: 0;
+      }
+    }
+
+    @include xs-block {
+      width: 40%;
+
+      &:nth-of-type(even) {
+        margin-left: 12px;
+      }
+      &:nth-of-type(odd) {
+        margin-left: 0px;
+      }
+    }
+  }
+}
+
+.portfolio {
+  @include row-flex;
+  justify-content: center;
+  max-width: 1170px;
+  margin: pxscale(22) auto 83px auto;
+}
+
+.portfolio-item {
+  position: relative;
+  @include col;
+  @include size(3);
+  @include size-md(4);
+  @include size-sm(6);
+  @include size-xs(10);
+  margin-bottom: 10px;
+
+  &:hover .portfolio-item__hidden {
+    opacity: 1;
+  }
+
+
+  &__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  &__hidden {
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(255,255,255,.7);
+    transition: all .2s;
+
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    margin-top: 20px;
+    font-family: "Lato";
+    color: #5b5b5b;
+    font-size: pxscale(9);
+  }
+
+  &__text {
+    margin-top: 10px;
+    @extend %secondary-text;
+    color: black;
+    line-height: 1.3;
+  }
+
+  &__btn {
+    margin-top: 15px;
+    width: 80%;
+  }
+}
+
+
+
+
+
+
+
+///////////////////////// comments //////////////////////////
+
+.comments {
+  padding-bottom: 125px;
+}
+
+.comments-wrapper {
+  @include row-flex;
+  justify-content: center;
+  margin-top: pxscale(50);
+}
+
+.comment {
+  @include col;
+  @include size(4);
+  @include size-sm(8);
+  @include size-xs(10);
+
+  &__text {
+    position: relative;
+    @extend %secondary-text;
+    padding-bottom: pxscale(14);
+    padding-top: 50px;
+    border-bottom: 1.5px solid #111111;
+    background-image: url('../imgs/svg/left-quote.svg');
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: top left;
+
+    @include sm-block {
+      text-align: center;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 15%;
+      left: 45px;
+      width: 87%;
+      border-bottom: 2px solid $yellow;
+      overflow: hidden;
+    }
+  }
+
+  &__author {
+    display: flex;
+    margin-top: pxscale(8);
+
+    @include sm-block {
+      justify-content: center;
+    }
+  }
+
+  &__photo {
+    width: 15%;
+    height: 15%;
+    margin-right: 14px;
+    object-fit: cover;
+
+    @include md-block {
+      width: 22%;
+      height: 22%;
+    }
+  }
+
+  &__name {
+    font-family: "Lato";
+    font-size: pxscale(8);
+    color: #313131;
+  }
+
+  &__job {
+    @extend %secondary-text;
+  }
+}
+
+
+
+
+
+
+///////////////////////// check //////////////////////////
+
+.check {
+  padding-top: 56px;
+  padding-bottom: pxscale(86);
+  background-image: url('../imgs/bg3.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  @include sm-block {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+
+  .section__title {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: pxscale(60);
+    color: white;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: pxscale(-26);
+      left: 50%;
+      transform: translateX(-50%);
+      width: pxscale(30);
+      border-top: 2px solid $yellow;
+
+      @include sm-block {
+        bottom: -5px;
+      }
+    }
+  }
+
+  .section__text {
+    position: relative;
+    color: white;
+    line-height: 1.5;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: pxscale(-20);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30%;
+      border-top: 1.5px solid white;
+
+      @include sm-block {
+        bottom: -5px;
+      }
+    }
+
+    &_yellow {
+      color: $yellow;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+///////////////////////// email //////////////////////////
+
+.email {
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: pxscale(86);
+
+  @include sm-block {
+    padding-bottom: 30px;
+  }
+}
+
+.email-form {
+  display: flex;
+  justify-content: center;
+  margin-top: pxscale(50);
+
+  &__input {
+    padding-left: 20px;
+    width: 40%;
+    outline: none;
+    border: solid 1px #c7c7c7;
+    border-right: none;
+    font-family: "Lato";
+    font-size: pxscale(10);
+    font-style: italic;
+    color: black;
+    transition: all .2s;
+    background-color: transparent;
+
+    @include sm-block {
+      width: 60%;
+    }
+
+    &:focus {
+      border-color: $yellow;
+      transform: scale(1.05);
+    }
+
+    &:focus + .email-form__btn{
+      transform: scale(1.05);
+    }
+  }
+
+  &__btn {
+    padding: pxscale(12) pxscale(25);
+    outline: none;
+    border: none;
+    background: $yellow;
+    transition: all .2s;
+  }
+}
+
+
+
+
+
+
+
+///////////////////////// contact //////////////////////////
+
+.contact {
+  padding-bottom: pxscale(86);
+}
+
+.contact-wrapper {
+  @include row-flex;
+  justify-content: space-between;
+  margin-top: pxscale(51);
+
+  @include sm-block {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+  }
+}
+
+.contact-form {
+  @include col;
+  @include size(6);
+  @include size-sm(10);
+  display: flex;
+  flex-direction: column;
+
+  @include sm-block {
+    align-items: center;
+  }
+
+  &__title {
+    width: 60%;
+    padding-top: pxscale(11);
+    padding-bottom: pxscale(8);
+    padding-left: 10px;
+    margin-bottom: 16px;
+    @extend %secondary-title;
+    color: white;
+    text-transform: none;
+    background-color: rgba(51, 51, 51, .8);
+
+    @include sm-block {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    @extend %secondary-text;
+    margin-bottom: 16px;
+  }
+
+  &__inputs {
+    display: flex;
+    justify-content: space-between;
+
+    @include md-block {
+      flex-direction: column;
+    }
+
+    @include sm-block {
+      width: 90%;
+    }
+  }
+
+  &__input {
+    width: 47%;
+    padding: 10px 0 10px 15px;
+    outline: none;
+    border: solid 1px #c7c7c7;
+    font-family: "Lato";
+    font-size: pxscale(10);
+    font-style: italic;
+    color: black;
+    transition: all .2s;
+    background-color: transparent;
+
+    @include md-block {
+      width: auto;
+
+      &:nth-of-type(2) {
+        margin-top: 10px;
+      }
+    }
+
+    @include sm-block {
+      width: 100%;
+    }
+
+    &:focus {
+      border-color: $yellow;
+      transform: scale(1.05);
+    }
+  }
+
+  &__textarea {
+    margin-top: 16px;
+    padding: 10px 0 10px 15px;
+    outline: none;
+    border: solid 1px #c7c7c7;
+    font-family: "Lato";
+    font-size: pxscale(10);
+    font-style: italic;
+    color: black;
+    transition: all .2s;
+    background-color: transparent;
+
+    @include sm-block {
+      width: 100%;
+    }
+
+    &:focus {
+      border-color: $yellow;
+      box-shadow: inset 0 0 3px $yellow;
+    }
+  }
+
+  &__buttons {
+    margin-top: 16px;
+
+    @include sm-block {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__btn {
+    width: 20%;
+    border: none;
+    text-transform: uppercase;
+    padding: 10px 15px 10px 15px;
+
+    @include md-block {
+      width: 40%;
+    }
+
+
+    &:first-of-type {
+      margin-right: 20px;
+    }
+  }
+}
+
+
+
+
+.contact-touch {
+  @include col;
+  @include size(4);
+  @include size-md(6);
+  @include size-sm(10);
+
+  @include sm-block {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    width: 60%;
+    padding-top: pxscale(11);
+    padding-bottom: pxscale(8);
+    padding-left: 10px;
+    margin-bottom: 16px;
+    @extend %secondary-title;
+    color: white;
+    text-transform: none;
+    background-color: rgba(51, 51, 51, .8);
+
+    @include sm-block {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &__text {
+    @extend %secondary-text;
+  }
+}
+
+.contact-contacts {
+  margin-top: 12px;
+  padding-bottom: 25px;
+  @extend %secondary-text;
+  line-height: 1.2;
+
+  &__text {
+    padding: 10px;
+
+    .fi {
+      margin-right: 8px;
+      padding: 7px 10px;
+      font-size: 20px;
+      background-color: rgba(51, 51, 51, .8);
+      color: $yellow;
+    }
+  }
+}
+
+.social {
+
+  @include sm-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    width: 60%;
+    padding-top: pxscale(11);
+    padding-bottom: pxscale(8);
+    padding-left: 10px;
+    margin-bottom: 16px;
+    @extend %secondary-title;
+    color: white;
+    text-transform: none;
+    background-color: rgba(51, 51, 51, .8);
+
+    @include sm-block {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.social-icons {
+
+  @include sm-block {
+  width: 100%;
+  text-align: center;
+}
+
+  .fi {
+    padding: 7px 10px;
+    background-color: $yellow;
+    font-size: 20px;
+    color: white;
+    transition: all .1s;
+
+    &:not(.flaticon-facebook-logo) {
+      margin-left: 8px;
+    }
+
+    &:hover {
+      color: $yellow;
+      background-color: rgba(51, 51, 51, .8);
+    }
+  }
+}
+
+///////////////////////// footer //////////////////////////
+
+.footer {
+  background-color: rgba(51, 51, 51, .8);
+
+  &__title {
+    padding-top: pxscale(11);
+    padding-bottom: pxscale(8);
+    @extend %secondary-title;
+    color: white;
+    text-transform: none;
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+///////////////////////// # //////////////////////////

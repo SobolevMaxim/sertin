@@ -1,0 +1,37 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 28/03/2018 12:38
+    */
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-mall-wifi-sign:before { content: "\f100"; }
+.flaticon-google-plus-symbol:before { content: "\f101"; }
+.flaticon-twitter-logo-silhouette:before { content: "\f102"; }
+.flaticon-facebook-logo:before { content: "\f103"; }
+.flaticon-message:before { content: "\f104"; }
+.flaticon-planet-earth:before { content: "\f105"; }
+.flaticon-phone-call:before { content: "\f106"; }
+.flaticon-location-pointer:before { content: "\f107"; }
+
+    $font-Flaticon-mall-wifi-sign: "\f100";
+    $font-Flaticon-google-plus-symbol: "\f101";
+    $font-Flaticon-twitter-logo-silhouette: "\f102";
+    $font-Flaticon-facebook-logo: "\f103";
+    $font-Flaticon-message: "\f104";
+    $font-Flaticon-planet-earth: "\f105";
+    $font-Flaticon-phone-call: "\f106";
+    $font-Flaticon-location-pointer: "\f107";
