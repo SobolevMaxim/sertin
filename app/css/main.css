@@ -460,8 +460,7 @@ a:hover {
 .slogan {
   margin-top: 0.875rem;
   border: 1px solid white;
-  width: 630px;
-  max-width: 90%;
+  width: 70%;
 }
 
 .slogan__text {
